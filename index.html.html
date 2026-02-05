@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de"></html>
+    <head> <title>Fotogalerie</title> </head> 
+<style>
+    .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+}
+
+.arrow.left {
+  left: 30px;
+}
+
+.arrow.right {
+  right: 30px;
+}
+
+.arrow:hover {
+  color: #ccc;
+}
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #999990
+        background-color: rgb(8, 39, 39);
+        margin-right: 20px;
+        margin-left: 20px;
+        margin-top: 20px;
+
+
+    }
+    .viewer-image {
+  height: min(800px, 90vh); /* 800px, но не больше экрана */
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* центрирует фото */
+  gap: 12px;
+  padding: 20px;
+  background: #aa7333a9; /* светлый фон */
+  border-radius: 12px;
+}
+
+.photo-gallery img {
+  height: 200px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+
+}
+.photo-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;                 /* скрыто по умолчанию */
+  justify-content: center;       /* центр по горизонтали */
+  align-items: center;           /* центр по вертикали */
+  z-index: 1000;
+}
+
+.photo-viewer.open {
+  display: flex;                 /* включаем flex при открытии */
+}
+
+.viewer-image {
+  height: min(800px, 90vh);      /* высота 800px, но не больше экрана */
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+</style>
+   <body>
+    <div class="photo-viewer" id="photoViewer">
+  <span class="close-viewer">&times;</span>
+
+  <span class="arrow left" id="prevPhoto">&#10094;</span>
+  <img class="viewer-image" src="" alt="">
+  <span class="arrow right" id="nextPhoto">&#10095;</span>
+</div>
+     <div class="photo-gallery">
+<img src="Frankenhausen 2020/Capablanca 2020 (1).JPG" alt="1">
+<img src="Frankenhausen 2020/Capablanca 2020 (2).JPG" alt="2">
+<img src="Frankenhausen 2020/Capablanca 2020 (3).JPG" alt="3">
+<img src="Frankenhausen 2020/Capablanca 2020 (4).JPG" alt="4">
+<img src="Frankenhausen 2020/Capablanca 2020 (5).JPG" alt="5">
+<img src="Frankenhausen 2020/Capablanca 2020 (6).JPG" alt="6">
+<img src="Frankenhausen 2020/Capablanca 2020 (7).JPG" alt="7">
+<img src="Frankenhausen 2020/Capablanca 2020 (8).JPG" alt="8">
+<img src="Frankenhausen 2020/Capablanca 2020 (9).JPG" alt="9">
+<img src="Frankenhausen 2020/Capablanca 2020 (10).JPG" alt="10">
+<img src="Frankenhausen 2020/Capablanca 2020 (11).JPG" alt="11">
+<img src="Frankenhausen 2020/Capablanca 2020 (12).JPG" alt="12">
+<img src="Frankenhausen 2020/Capablanca 2020 (13).JPG" alt="13">
+<img src="Frankenhausen 2020/Capablanca 2020 (14).JPG" alt="14">
+<img src="Frankenhausen 2020/Capablanca 2020 (15).JPG" alt="15">
+<img src="Frankenhausen 2020/Capablanca 2020 (16).JPG" alt="16">
+<img src="Frankenhausen 2020/Capablanca 2020 (17).JPG" alt="17">
+<img src="Frankenhausen 2020/Capablanca 2020 (18).JPG" alt="18">
+<img src="Frankenhausen 2020/Capablanca 2020 (19).JPG" alt="19">
+<img src="Frankenhausen 2020/Capablanca 2020 (20).JPG" alt="20">
+<img src="Frankenhausen 2020/Capablanca 2020 (21).JPG" alt="21">
+<img src="Frankenhausen 2020/Capablanca 2020 (22).JPG" alt="22">
+<img src="Frankenhausen 2020/Capablanca 2020 (23).JPG" alt="23">
+<img src="Frankenhausen 2020/Capablanca 2020 (24).JPG" alt="24">
+<img src="Frankenhausen 2020/Capablanca 2020 (25).JPG" alt="25">
+<img src="Frankenhausen 2020/Capablanca 2020 (26).JPG" alt="26">
+<img src="Frankenhausen 2020/Capablanca 2020 (27).JPG" alt="27">
+<img src="Frankenhausen 2020/Capablanca 2020 (28).JPG" alt="28">
+<img src="Frankenhausen 2020/Capablanca 2020 (29).JPG" alt="29">
+<img src="Frankenhausen 2020/Capablanca 2020 (30).JPG" alt="30">
+<img src="Frankenhausen 2020/Capablanca 2020 (31).JPG" alt="31">
+<img src="Frankenhausen 2020/Capablanca 2020 (32).JPG" alt="32">
+<img src="Frankenhausen 2020/Capablanca 2020 (33).JPG" alt="33">
+<img src="Frankenhausen 2020/Capablanca 2020 (34).JPG" alt="34">
+<img src="Frankenhausen 2020/Capablanca 2020 (35).JPG" alt="35">
+<img src="Frankenhausen 2020/Capablanca 2020 (36).JPG" alt="36">
+<img src="Frankenhausen 2020/Capablanca 2020 (37).JPG" alt="37">
+<img src="Frankenhausen 2020/Capablanca 2020 (38).JPG" alt="38">
+<img src="Frankenhausen 2020/Capablanca 2020 (39).JPG" alt="39">
+<img src="Frankenhausen 2020/Capablanca 2020 (40).JPG" alt="40">
+<img src="Frankenhausen 2020/Capablanca 2020 (41).JPG" alt="41">
+<img src="Frankenhausen 2020/Capablanca 2020 (42).JPG" alt="42">
+<img src="Frankenhausen 2020/Capablanca 2020 (43).JPG" alt="43">
+<img src="Frankenhausen 2020/Capablanca 2020 (44).JPG" alt="44">
+<img src="Frankenhausen 2020/Capablanca 2020 (45).JPG" alt="45">
+<img src="Frankenhausen 2020/Capablanca 2020 (46).JPG" alt="46">
+<img src="Frankenhausen 2020/Capablanca 2020 (47).JPG" alt="47">
+<img src="Frankenhausen 2020/Capablanca 2020 (48).JPG" alt="48">
+<img src="Frankenhausen 2020/Capablanca 2020 (49).JPG" alt="49">
+<img src="Frankenhausen 2020/Capablanca 2020 (50).JPG" alt="50">
+<img src="Frankenhausen 2020/Capablanca 2020 (51).JPG" alt="51">
+<img src="Frankenhausen 2020/Capablanca 2020 (52).JPG" alt="52">
+<img src="Frankenhausen 2020/Capablanca 2020 (53).JPG" alt="53">
+<img src="Frankenhausen 2020/Capablanca 2020 (54).JPG" alt="54">
+<img src="Frankenhausen 2020/Capablanca 2020 (55).JPG" alt="55">
+<img src="Frankenhausen 2020/Capablanca 2020 (56).JPG" alt="56">
+<img src="Frankenhausen 2020/Capablanca 2020 (57).JPG" alt="57">
+<img src="Frankenhausen 2020/Capablanca 2020 (58).JPG" alt="58">
+<img src="Frankenhausen 2020/Capablanca 2020 (59).JPG" alt="59">
+<img src="Frankenhausen 2020/Capablanca 2020 (60).JPG" alt="60">
+<img src="Frankenhausen 2020/Capablanca 2020 (61).JPG" alt="61">
+<img src="Frankenhausen 2020/Capablanca 2020 (62).JPG" alt="62">
+<img src="Frankenhausen 2020/Capablanca 2020 (63).JPG" alt="63">
+<img src="Frankenhausen 2020/Capablanca 2020 (64).JPG" alt="64">
+<img src="Frankenhausen 2020/Capablanca 2020 (65).JPG" alt="65">
+<img src="Frankenhausen 2020/Capablanca 2020 (66).JPG" alt="66">
+<img src="Frankenhausen 2020/Capablanca 2020 (67).JPG" alt="67">
+<img src="Frankenhausen 2020/Capablanca 2020 (68).JPG" alt="68">
+<img src="Frankenhausen 2020/Capablanca 2020 (69).JPG" alt="69">
+<img src="Frankenhausen 2020/Capablanca 2020 (70).JPG" alt="70">
+<img src="Frankenhausen 2020/Capablanca 2020 (71).JPG" alt="71">
+<img src="Frankenhausen 2020/Capablanca 2020 (72).JPG" alt="72">
+<img src="Frankenhausen 2020/Capablanca 2020 (73).JPG" alt="73">
+<img src="Frankenhausen 2020/Capablanca 2020 (74).JPG" alt="74">
+<img src="Frankenhausen 2020/Capablanca 2020 (75).JPG" alt="75">
+<img src="Frankenhausen 2020/Capablanca 2020 (76).JPG" alt="76">
+<img src="Frankenhausen 2020/Capablanca 2020 (77).JPG" alt="77">
+<img src="Frankenhausen 2020/Capablanca 2020 (78).JPG" alt="78">
+<img src="Frankenhausen 2020/Capablanca 2020 (79).JPG" alt="79">
+<img src="Frankenhausen 2020/Capablanca 2020 (80).JPG" alt="80">
+<img src="Frankenhausen 2020/Capablanca 2020 (81).JPG" alt="81">
+<img src="Frankenhausen 2020/Capablanca 2020 (82).JPG" alt="82">
+<img src="Frankenhausen 2020/Capablanca 2020 (83).JPG" alt="83">
+<img src="Frankenhausen 2020/Capablanca 2020 (84).JPG" alt="84">
+<img src="Frankenhausen 2020/Capablanca 2020 (85).JPG" alt="85">
+<img src="Frankenhausen 2020/Capablanca 2020 (86).JPG" alt="86">
+<img src="Frankenhausen 2020/Capablanca 2020 (87).JPG" alt="87">
+<img src="Frankenhausen 2020/Capablanca 2020 (88).JPG" alt="88">
+  <!-- добавляй сколько нужно -->
+</div>
+
+<!-- Модальное окно -->
+<div class="photo-viewer" id="photoViewer">
+  <span class="close-viewer">&times;</span>
+  <img class="viewer-image" src="" alt="">
+</div>
+<script>
+  const galleryImages = document.querySelectorAll('.photo-gallery img');
+  const viewer = document.getElementById('photoViewer');
+  const viewerImg = viewer.querySelector('.viewer-image');
+  const closeBtn = viewer.querySelector('.close-viewer');
+
+  const prevBtn = document.getElementById('prevPhoto');
+  const nextBtn = document.getElementById('nextPhoto');
+
+  let currentIndex = 0;
+
+  // Открытие фото
+  galleryImages.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      viewerImg.src = img.src;
+      viewer.classList.add('open');
+    });
+  });
+
+  // Закрытие
+  closeBtn.addEventListener('click', () => viewer.classList.remove('open'));
+  viewer.addEventListener('click', (e) => {
+    if (e.target === viewer) viewer.classList.remove('open');
+  });
+
+  // Листание назад
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    viewerImg.src = galleryImages[currentIndex].src;
+  });
+
+  // Листание вперёд
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    viewerImg.src = galleryImages[currentIndex].src;
+  });
+
+  // ESC закрывает
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') viewer.classList.remove('open');
+
+    if (e.key === 'ArrowRight') nextBtn.click();
+    if (e.key === 'ArrowLeft') prevBtn.click();
+  });
+</script>
+   </body>
+</html> 
